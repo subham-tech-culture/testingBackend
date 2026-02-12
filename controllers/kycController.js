@@ -24,16 +24,16 @@ export const verifyPAN = async (req, res) => {
       {
         params: {
           panNo: pan,
-          username: "EZ",
-          PosCode: "1201435733",
-          Password: "pOxeqUXJNwDvQlAxtNnlrw==",
-          PassKey: "ekyc",
+          username: process.env.CVLKRA_USERNAME,
+          PosCode: process.env.CVLKRA_POSCODE,
+          Password: process.env.CVLKRA_PASSWORD,
+          PassKey: process.env.CVLKRA_PASSKEY,
         },
       }
     );
 
     console.log("KRA Response:", kraResponse.data);
-    
+
   return res.status(200).json({
       success: true,
       data: kraResponse.data,
